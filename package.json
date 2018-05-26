@@ -1,5 +1,5 @@
 {
-  "name": "sc-text",
+  "name": "resource-experiments",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,7 @@
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
     "react-state-context": "^0.2.1",
-    "standard-resource": "^0.2.0"
+    "standard-resource": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
