@@ -11,22 +11,45 @@ const todoActions = {
     return newTodo;
   },
 
-  deleteTodo: (setState, getState) => id => {
+  deleteTodo: setState => id => {
     // Implement some logic to delete the todo.
   },
 
-  increment: (setState, getState) => () => {
-    setState({
-      number: ++getState().number
+  increment: () => setState => {
+    console.log("increment part 1");
+    setState(prevState => {
+      return {
+        number: prevState.number + 1
+      };
+    });
+
+    console.log("starting to wait for part 2");
+    setTimeout(() => {
+      setState(prevState => {
+        console.log("increment part 2");
+        return {
+          number: prevState.number + 1
+        };
+      });
+    }, 1000);
+  },
+
+  decrement: () => setState => {
+    setState(prevState => {
+      return {
+        number: prevState.number - 1
+      };
     });
   },
 
-  decrement: (setState, getState) => {
-    return () => {
-      setState({
-        number: --getState().number
-      });
+  setNumber: number => {
+    return {
+      number
     };
+  },
+
+  setNull() {
+    return null;
   }
 };
 

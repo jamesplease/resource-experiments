@@ -1,25 +1,22 @@
 import React, { Component, Fragment } from "react";
-import _ from "lodash";
 import Resources from "./resources/resources";
-import { createBook } from "./resources/actions";
+import { createAuthor } from "./resources/actions";
 
 let updated = false;
 
 export default class Child extends Component {
   render() {
     return (
-      <Resources.Consumer
-        selector={state => _.get(state, "resources.books.24.attributes.name")}
-      >
+      <Resources.Consumer selector={state => state.resources.authors}>
         {value => {
-          console.log("ChildTwo Consumer value:", value);
+          console.log("ChildThree Consumer value:", value);
 
           setTimeout(() => {
             if (!updated) {
               updated = true;
 
-              createBook(24, {
-                name: "Lord of the Rings"
+              createAuthor(24, {
+                name: "James"
               });
             }
           });

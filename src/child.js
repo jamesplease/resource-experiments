@@ -6,11 +6,13 @@ export default class Child extends Component {
     return (
       <TodosContext.Consumer>
         {value => {
+          console.log("Child: rendering", value.state);
           return (
             <Fragment>
-              <div>hello {value.state.number}</div>
+              <div>hello {value.state && value.state.number}</div>
               <button onClick={() => value.increment()}>Increment</button>
               <button onClick={() => value.decrement()}>Decrement</button>
+              <button onClick={() => value.setNumber(10)}>Set to 10</button>
             </Fragment>
           );
         }}
